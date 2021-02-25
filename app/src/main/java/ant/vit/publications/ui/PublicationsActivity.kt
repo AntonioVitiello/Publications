@@ -38,7 +38,10 @@ class PublicationsActivity : AppCompatActivity() {
 
     private fun initComponents() {
         mAdapter = PublicationsAdapter (::showAlert)
-        postRecyclerView.adapter = mAdapter
+        postRecyclerView.apply {
+            setHasFixedSize(false)
+            adapter = mAdapter
+        }
 
         supportActionBar?.apply {
             setDisplayShowHomeEnabled(true)

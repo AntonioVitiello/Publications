@@ -33,7 +33,7 @@ fun <T> Single<T>.manageLoading(showProgressLiveData: MutableLiveData<SingleEven
 fun ImageView.loadImage(imageUrl: String?) {
     Picasso.get()
         .load(imageUrl)
-        .fit()
+        //.fit()
         .placeholder(R.drawable.ic_placeholder)
         .error(R.drawable.ic_broken_image)
         .into(this, object : Callback {
