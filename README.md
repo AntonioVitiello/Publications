@@ -30,4 +30,4 @@ maschera {0:000} con il valore 001.
 ![Home section - Issue](https://github.com/AntonioVitiello/Publications/blob/master/art/screen1.png)
 ![Home section - Download](https://github.com/AntonioVitiello/Publications/blob/master/art/screen2.png)
 ![Home section - Acquista](https://github.com/AntonioVitiello/Publications/blob/master/art/screen3.png)
-![Home section - Video](https://github.com/AntonioVitiello/Pokemon/blob/master/art/animation1.gif)
+![Home section - Video](https://github.com/AntonioVitiello/Publications/blob/master/art/animation1.gif)
