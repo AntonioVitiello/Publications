@@ -27,5 +27,6 @@ o il download funzionino realmente. 
 Per la copertina del numero occorre recuperare l’url della chiave “imagesUrl” e sostituire la 
 maschera {0:000} con il valore 001.
 
-![Home section - screen1](https://github.com/AntonioVitiello/Publications/blob/master/art/screen1.png)
-![Home section - screen2](https://github.com/AntonioVitiello/Publications/blob/master/art/screen2.png)
+![Home section - Issue](https://github.com/AntonioVitiello/Publications/blob/master/art/screen1.png)
+![Home section - Download](https://github.com/AntonioVitiello/Publications/blob/master/art/screen2.png)
+![Home section - Acquista](https://github.com/AntonioVitiello/Publications/blob/master/art/screen3.png)
