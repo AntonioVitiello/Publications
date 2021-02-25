@@ -1,0 +1,44 @@
+https://api-ne.paperlit.com/v8/projects/prj_5df8a84c8ef9a/publications
+
+
+{
+    "error": false,
+    "method": "https://api-ne.paperlit.com/v8/projects/prj_5df8a84c8ef9a/publications",
+    "data": {
+        "startIndex": 0,
+        "totalItems": 1,
+        "itemsPerPage": 40,
+        "itemsCount": 1,
+        "timestamp": 1576581225,
+        "prevPage": null,
+        "nextPage": null,
+        "itemsType": "publication",
+        "items": [
+            {
+                "publicationId": "pub_5df8a84cdeb4d",
+                "description": null,
+                "propertiesJson": {
+                    "stores": {
+                        "googlePlayDefaultPriceTier": null,
+                        "appStoreDefaultPriceTier": null
+                    },
+                    "products": {
+                        "total": 50,
+                        "consumable": 6
+                    }
+                },
+                "projectId": "prj_5df8a84c8ef9a",
+                "readersEmail": null,
+                "supportEmail": null,
+                "autoPublish": false,
+                "maxNumberOfIssues": 2048,
+                "createdOn": "2019-12-17 10:05:00",
+                "updatedOn": "2019-12-17 11:13:45",
+                "deletedOn": null,
+                "sortingPosition": null,
+                "publicationName": "Application test",
+                "storageLocation": "EU"
+            }
+        ]
+    }
+}
