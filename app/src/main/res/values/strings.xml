@@ -1,12 +1,8 @@
 <resources>
+
     <string name="publications_app_name">Publications</string>
     <string name="content_description">Paperlit</string>
     <string name="generic_network_error_message">Errore di rete, riprova più tardi.</string>
-
-    <string name="rest_list_label">rest-list</string>
-    <string name="rest_filters_label">rest-filters</string>
-    <string name="label_next">Prossimo</string>
-    <string name="filter">Filtro</string>
     <string name="label_download">Download</string>
     <string name="label_buy">Acquista</string>
     <string name="you_choose">Hai scelto: %s</string>

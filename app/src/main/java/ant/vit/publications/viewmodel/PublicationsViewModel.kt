@@ -26,45 +26,43 @@ class PublicationsViewModel(application: Application) : AndroidViewModel(applica
     var progressLiveData: MutableLiveData<SingleEvent<Boolean>> = MutableLiveData()
 
     companion object {
-        private const val TAG = "LoadRestViewModel"
+        private const val TAG = "PublicationsViewModel"
     }
 
     fun loadPublicationsById(publicationsId: String) {
         compositeDisposable.add(
-            PubblicationsRepository.getPublicationsSingle(publicationsId)
-                .flatMap { publications ->
-                    val models = mapPublicationsResponse(publications)
-                    val issueSingleList = models.map { model ->
-                        model.id?.let { itemPublicationId ->
-                            PubblicationsRepository.getIssueSingle(publicationsId, itemPublicationId)
-                                .onErrorReturn { IssueResponse(null, true, null) }
-                        }
-                    }
-                    Single.zip(issueSingleList) { issueResponses ->
-                        issueResponses.forEachIndexed { i, response ->
-                            val issueResponse = response as IssueResponse
-                            issueResponse.data?.items?.forEach { issueItem ->
-                                val imageUrl = issueItem.variants?.get(0)?.imagesUrl?.replace("{0:000}", "001")
-                                models[i].issueModels.add(
-                                    IssueModel(issueItem.publicationId, issueItem.issueName, imageUrl, issueItem.isForSale == true)
-                                )
+                PubblicationsRepository.getPublicationsSingle(publicationsId)
+                        .flatMap { publications ->
+                            val publicationsModels = mapPublicationsResponse(publications)
+                            val issueSingleList = publicationsModels.map { publicationModel ->
+                                publicationModel.id?.let { itemPublicationId ->
+                                    PubblicationsRepository.getIssueSingle(publicationsId, itemPublicationId)
+                                            .onErrorReturn { IssueResponse(null, true, null) }
+                                }
+                            }
+                            Single.zip(issueSingleList) { issueResponses ->
+                                issueResponses.forEachIndexed { i, response ->
+                                    val issueResponse = response as IssueResponse
+                                    issueResponse.data?.items?.forEach { issueItem ->
+                                        val imageUrl = issueItem.variants?.get(0)?.imagesUrl?.replace("{0:000}", "001")
+                                        val issueModel = IssueModel(issueItem.publicationId, issueItem.issueName, imageUrl, issueItem.isForSale == true)
+                                        publicationsModels[i].issueModels.add(issueModel)
+                                    }
+                                }
+                                publicationModelsLiveData.postValue(publicationsModels)
+                                true
                             }
                         }
-                        publicationModelsLiveData.postValue(models)
-                        true
-                    }
-                }
-                .manageLoading(progressLiveData)
-                .subscribeOn(Schedulers.io())
-                //.observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    //do nothing
-                }, {
-                    val message =
-                        getApplication<Application>().getString(R.string.generic_network_error_message)
-                    errorLiveData.value = SingleEvent(message)
-                    Log.e(TAG, "Error while loading publications by id.", it)
-                })
+                        .manageLoading(progressLiveData)
+                        .subscribeOn(Schedulers.io())
+                        //.observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({
+                            //do nothing
+                        }, {
+                            val message = getApplication<Application>().getString(R.string.generic_network_error_message)
+                            errorLiveData.value = SingleEvent(message)
+                            Log.e(TAG, "Error while loading publications by id.", it)
+                        })
         )
     }
 
