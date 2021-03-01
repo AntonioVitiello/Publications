@@ -15,3 +15,6 @@
 /.idea
 /gradlew
 /gradlew.bat
+/art/animation1.mp4
+/art/convert MP4 2 GIF.bat
+/art/output.gif
